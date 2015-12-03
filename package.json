@@ -1,0 +1,14 @@
+{
+  "name": "CodeCast",
+  "version": "1.0.0",
+  "description": "A utility for monitoring the growth of your code and playing it back.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Joe Pfeiffer",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^1.3.0"
+  }
+}
