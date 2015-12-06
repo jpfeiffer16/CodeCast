@@ -3,12 +3,18 @@
     <title>CodeCast</title>
   </head>
   <body>
+    
+    <p>Code:</p>
+
+    <textarea id="code" name="code" style="width:700px;height:900px;"></textarea>    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io('//localhost:3000');
-      socket.on('news', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
+      socket.on('code', function (data) {
+        //console.log('code: ', data);
+        $('#code').text(data);
       });
     </script>
   </body>

@@ -1,10 +1,9 @@
-var fs = require('fs');
+var test = {
+  sayHi: function(name) {
+    console.log('Hello' + name);
+  }
+};
 
+test.sayHi('Joe');
 
-fs.readFile('test', function() {
-  console.log("Do stuff");
-  //TODO: Uhhh.. Do stuff.
-
-
-
-});
+//Results in 'Hello Joe'
