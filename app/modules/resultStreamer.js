@@ -1,10 +1,7 @@
 var fs = require('fs');
 
-
-
 module.exports = (function() {
   var callbacks = [];
-  
   
   function onTick(callback) {
     if (typeof(callback) == 'function') {
@@ -31,9 +28,5 @@ module.exports = (function() {
     }
     setInterval(doTick, 1000);
   });
-  
-  
-  
-  
   return {onTick: onTick};
 })();

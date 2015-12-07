@@ -6,7 +6,6 @@ var fileState = [];
 
 process.on('SIGINT', function() {
   console.log('Bye bye');
-  // console.dir(fileState);
   fs.writeFile('./output.ccst', JSON.stringify(fileState), 'utf8', function(err) {
     if (!err) {
       console.log('File written successfully');

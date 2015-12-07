@@ -1,20 +1,18 @@
 var port = 3000;
 
-var fileWatcher = require('./app/fileWatcher');
+var fileWatcher = require('./app/modules/fileWatcher');
 var http = require('http');
 var fs = require('fs');
 
-
-fileWatcher.watchFile('./test.js');
-
-
 var app = http.createServer(function(req, res) {
   // res.end('Hi');
-  fs.readFile('./page.html', 'utf8', function(err, data) {
-    if (!err) {
-      res.end(data);
+  fs.stat('./app/controllers/' + req.url.substring(1) + '.js', function(err, stat) {
+    if (!err && stat.isFile()) {
+      require('./app/controllers/' + req.url.substring(1))(req, res);
+    } else if (err) {
+      res.end(err.message);
     } else {
-      res.end('Error: ' + err.message);
+      res.end('Hi');
     }
   });
 }).listen(port, '127.0.0.1', function() {
@@ -24,7 +22,7 @@ var app = http.createServer(function(req, res) {
 var io = require('socket.io')(app);
 
 io.on('connection', function (socket) {
-  var fileResult = require('./app/resultStreamer');
+  var fileResult = require('./app/modules/resultStreamer');
   fileResult.onTick(function(code) {
     socket.emit('code', code);
   });
