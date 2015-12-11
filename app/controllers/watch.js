@@ -1,6 +1,6 @@
 module.exports = function(req, res) {
   
-  var fileWatcher = require('./app/modules/fileWatcher');
+  var fileWatcher = require('../modules/fileWatcher');
   try {
     fileWatcher.watchFile('./test.js');
     res.end('watching file');

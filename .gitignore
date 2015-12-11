@@ -1,2 +1,4 @@
 .zedstate
 node_modules
+/nbproject/private/
+nbproject

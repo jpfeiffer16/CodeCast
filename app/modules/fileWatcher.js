@@ -26,7 +26,7 @@ function writeOutput(data, callback) {
 
 module.exports = (function() {
   function watchFile(filename) {
-    chokidar.watch('./test.js').on('change', function(event, path) {
+    chokidar.watch('../../test.js').on('change', function(event, path) {
       fs.readFile(filename, 'utf8', function(err, data) {
         if (!err)
         {

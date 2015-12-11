@@ -7,3 +7,4 @@ var test = {
 test.sayHi('Joe');
 
 //Results in 'Hello Joe'
+//Lets do some more cool stuff
