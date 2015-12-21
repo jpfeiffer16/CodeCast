@@ -19,6 +19,15 @@ var app = http.createServer(function(req, res) {
   console.log('Server listening on port: ' + port);
 });
 
+
+//Temporary: For testing purposes
+
+
+var fileWatcher = require('./app/modules/fileWatcher');
+
+fileWatcher.watchFile('Test');
+
+
 var io = require('socket.io')(app);
 
 io.on('connection', function (socket) {
